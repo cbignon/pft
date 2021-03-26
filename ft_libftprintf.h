@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:48:15 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/24 15:53:08 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/26 18:13:05 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,12 @@ void			ft_zero(const char *format,t_flags *flags);
 void			convert_str_with_zero(t_flags *flags, char *str);
 void			convert_with_flags(t_flags *flags);
 void			int_with_flags(t_flags *flags, int n);
-void			ft_print_it(int n, int to_add, int add_back, t_flags *flags);
+void			ft_print_int(int n, int to_add, int add_back, t_flags *flags);
 void			put_zero(int to_add, t_flags *flags);
 void			put_space(int to_add, t_flags *flags);
 void			only_width(int n, int to_add, t_flags *flags);
 void			only_prec(int n, int to_add, t_flags *flags);
 void			prec_and_width(int n, int to_add, int add_back, t_flags *flags);
+void			deal_neg_int(int n, int to_add, int add_back, t_flags *flags);
+void			convert_str_width(t_flags *flags, char *str);
 #endif

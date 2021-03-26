@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:28:50 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/24 21:38:53 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/26 17:09:21 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_parse_format(const char *fmt, t_flags *flags)
 		{
 			flags->type = fmt[flags->i];
 			flags->i++;
+			return ;
 		}
 	}
 	if (flags->minus == 1 && flags->zero == 1)

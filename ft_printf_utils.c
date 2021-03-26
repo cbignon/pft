@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 13:54:29 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/17 14:31:46 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/26 18:06:23 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_putstr(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	if (str[i])
 	{
 		while (str[i] != '\0')
@@ -30,8 +32,8 @@ int		ft_putstr(char *str)
 
 void		ft_putnbr(int nb, int len_b, char *base, t_flags *flags)
 {
-	int			reste;
-	long long	nombre;
+	int		reste;
+	long	nombre;
 
 	nombre = nb;
 	if (nombre < 0)
