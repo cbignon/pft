@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 20:47:53 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/26 20:43:06 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/26 20:57:01 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_convert_str(t_flags *flags)
 	to_print = va_arg(flags->args, char*);
 	if (flags->dot == 1)
 		convert_str_with_dot(flags, to_print);
-	else if (flags->precision > 0)
+	else if (flags->width > 0)
 		convert_str_width(flags, to_print);
 	else
 		flags->printed += ft_putstr(to_print);

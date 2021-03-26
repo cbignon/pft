@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 14:59:28 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/26 18:19:49 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/26 20:58:33 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ void	convert_str_width(t_flags *flags, char *str)
 	if (flags->width > slen)
 	{
 		space = flags->width - slen;
-		while (space != 0)
+		while (space > 0)
 		{
 			flags->printed += write(1, " ", 1);
 			space--;
 		}
 		flags->printed += ft_putstr(str);
 	}
+	else
+		flags->printed += ft_putstr(str);
 }
