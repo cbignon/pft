@@ -6,28 +6,27 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 13:54:29 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/26 18:06:23 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/30 14:46:25 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-int		ft_putstr(char *str)
+void		ft_pf_putstr(char *str, t_flags *flags)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (0);
+	if (str == NULL)
+		str = "(null)";
 	if (str[i])
 	{
 		while (str[i] != '\0')
 		{
-			write(1, &str[i], 1);
+			flags->printed += write(1, &str[i], 1);
 			i++;
 		}
 	}
-	return (i);
 }
 
 void		ft_putnbr(int nb, int len_b, char *base, t_flags *flags)

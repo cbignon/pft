@@ -6,7 +6,7 @@
 #    By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/02 11:17:28 by cbignon           #+#    #+#              #
-#    Updated: 2021/03/24 19:41:39 by cbignon          ###   ########.fr        #
+#    Updated: 2021/03/30 10:54:09 by cbignon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,15 +17,12 @@ SOURCES=	ft_printf.c \
 			ft_printf_utils.c \
 			ft_utils_count.c \
 			ft_convert_type.c \
-			ft_convert_type_2.c \
 			ft_is.c \
 			ft_flags.c \
-			ft_convert_int_with_flags.c \
-			ft_convert_uint_with_flags.c \
-			ft_convert_str_with_flags.c \
-			int_with_flags.c \
+			len_with_flags.c \
 			convert_with_flags.c \
-			ft_print_it.c \
+			ft_print_int.c \
+			ft_print_s.c\
 
 CC= clang
 

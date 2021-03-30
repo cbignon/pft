@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 10:28:50 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/26 17:09:21 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/30 13:28:55 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	ft_parse_format(const char *fmt, t_flags *flags)
 		{
 			flags->type = fmt[flags->i];
 			flags->i++;
+			if (flags->minus == 1 && flags->zero == 1)
+				flags->zero = 0;
+			if (flags->precision > 0 && flags->zero == 1)
+				flags->zero = 0;
 			return ;
 		}
 	}
-	if (flags->minus == 1 && flags->zero == 1)
-		flags->zero = 0;
-	if (flags->precision > 0 && flags->zero == 1)
-		flags->zero = 0;
 }
 
 void	ft_get_precision(const char *fmt, t_flags *flags)

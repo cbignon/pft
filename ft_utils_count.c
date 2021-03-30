@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 16:48:00 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/15 11:23:35 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:55:32 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned int	ft_count_hexa(unsigned long long n)
 	return (count);
 }
 
-unsigned int	ft_count_digit(int n)
+unsigned int	ft_count_digit(long int n)
 {
 	unsigned int	count;
 	unsigned int	nb;
@@ -48,11 +48,13 @@ unsigned int	ft_count_digit(int n)
 	return (count);
 }
 
-size_t	ft_strlen(const char *str)
+size_t			ft_strlen(const char *str)
 {
 	size_t	len;
 
 	len = 0;
+	if (str == NULL)
+		str = "(null)";
 	while (str[len] != '\0')
 		len++;
 	return (len);

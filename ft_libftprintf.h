@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:48:15 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/26 18:13:05 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/30 21:55:09 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void			ft_get_precision(const char *format, t_flags *flags);
 void			ft_get_width(const char *fmt, t_flags *flags);
 void			treat_minus(const char *fmt, t_flags *flags);
 size_t			ft_strlen(const char *str);
-int				ft_putstr(char *str);
+void			ft_pf_putstr(char *str, t_flags *flags);
 void			ft_putnbr_hex(unsigned long long nbr, t_flags *flags);
 void			ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags);
 void			ft_putnbr(int nb, int len_b, char *base, t_flags *flags);
-unsigned int	ft_count_digit(int n);
+unsigned int	ft_count_digit(long int n);
 unsigned int	ft_count_hexa(unsigned long long n);
 void			ft_put_un_nbr(unsigned int nb, int len_b, char *base, t_flags *flags);
 void			ft_convert_char(t_flags *flags);
@@ -62,19 +62,11 @@ int				ft_is_in_flags(char c);
 void			ft_init_flags(t_flags *flags);
 void			ft_all_flags(t_flags *flags);
 void			ft_dot(const char *format, t_flags *flags);
-void			convert_int_with_dot(t_flags *flags,int n);
-void			convert_int_with_width(t_flags *flags, int n);
-void			convert_int_space_after(t_flags *flags, int n);
-void			convert_uint_with_dot(t_flags *flags,unsigned int n);
-void			convert_uint_with_width(t_flags *flags, unsigned int n);
-void			convert_uint_space_after(t_flags *flags, unsigned int n);
-void			convert_str_with_dot(t_flags *flags, char *str);
 void			ft_star(const char *format, t_flags *flags);
 void			ft_width(const char *format, t_flags *flags);
 void			ft_zero(const char *format,t_flags *flags);
-void			convert_str_with_zero(t_flags *flags, char *str);
 void			convert_with_flags(t_flags *flags);
-void			int_with_flags(t_flags *flags, int n);
+void			int_with_flags(t_flags *flags, long int n);
 void			ft_print_int(int n, int to_add, int add_back, t_flags *flags);
 void			put_zero(int to_add, t_flags *flags);
 void			put_space(int to_add, t_flags *flags);
@@ -82,5 +74,13 @@ void			only_width(int n, int to_add, t_flags *flags);
 void			only_prec(int n, int to_add, t_flags *flags);
 void			prec_and_width(int n, int to_add, int add_back, t_flags *flags);
 void			deal_neg_int(int n, int to_add, int add_back, t_flags *flags);
-void			convert_str_width(t_flags *flags, char *str);
+void			deal_zero_int(int to_add, int add_back, t_flags *flags);
+void			ft_print_char(char *s, int max_len, int space, t_flags *flags);
+void			print_len(char *s, int	len, t_flags *flags);
+void			s_only_width(char *s, int space, t_flags *flags);
+void			s_only_prec(char *s, int max_len, t_flags *flags);
+void			s_prec_and_width(char *s, int max_len, int space, t_flags *flags);
+void			str_with_flags(t_flags *flags, char *s);
+void			ft_print_str(char *s, int max_len, int space, t_flags *flags);
+void			char_with_flags(t_flags *flags, char c);
 #endif
