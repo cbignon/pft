@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:09:21 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 13:29:07 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 19:20:35 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_print_u_int(unsigned int n, int to_add, int add_back, t_flags *flags)
 	else if (flags->dot == 1 && flags->width == 0)
 		u_only_prec(n, add_back, flags);
 	else if (flags->dot == 1 && flags->width > 0)
-		u_prec_and_width(n, to_add, add_back, flags);
+		u_prec_width(n, to_add, add_back, flags);
 	else
 		ft_put_un_nbr(n, 10, "0123456789", flags);
 }
@@ -51,23 +51,23 @@ void	u_only_prec(int n, int to_add, t_flags *flags)
 	ft_put_un_nbr(n, 10, "0123456789", flags);
 }
 
-void	u_prec_and_width(unsigned int n, int to_add, int add_back, t_flags *flags)
+void	u_prec_width(unsigned n, int add, int add_b, t_flags *flags)
 {
 	if (n == 0)
 	{
-		deal_zero_int(to_add, add_back, flags);
+		deal_zero_int(add, add_b, flags);
 		return ;
 	}
 	if (flags->minus)
 	{
-		put_zero(add_back, flags);
+		put_zero(add_b, flags);
 		ft_put_un_nbr(n, 10, "0123456789", flags);
-		put_space(to_add, flags);
+		put_space(add, flags);
 	}
 	else
 	{
-		put_space(to_add, flags);
-		put_zero(add_back, flags);
+		put_space(add, flags);
+		put_zero(add_b, flags);
 		ft_put_un_nbr(n, 10, "0123456789", flags);
 	}
 }
