@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:47:38 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 21:40:20 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 16:59:58 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,19 @@ void	ft_print_until(const char *format, char c, t_flags *flags)
 	{
 		flags->printed += write(1, &format[flags->i], 1);
 		flags->i++;
+	}
+}
+
+void	print_len(char *s, int len, t_flags *flags)
+{
+	int	i;
+
+	i = 0;
+	while (len)
+	{
+		flags->printed += write(1, &s[i], 1);
+		i++;
+		len--;
 	}
 }
 

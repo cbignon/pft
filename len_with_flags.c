@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:52:22 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 14:58:31 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 17:31:56 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,8 @@ void	str_with_flags(t_flags *flags)
 
 	s = va_arg(flags->args, char*);
 	if (s == NULL)
-		initial_len = 6;
-	else
-		initial_len = ft_strlen(s);
+		s = "(null)";
+	initial_len = ft_strlen(s);
 	max_len = 0;
 	space = 0;
 	if (flags->width < initial_len)
@@ -108,4 +107,3 @@ void	str_with_flags(t_flags *flags)
 		space = flags->width - max_len;
 	ft_print_str(s, max_len, space, flags);
 }
-

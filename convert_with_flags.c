@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:31:33 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 14:16:01 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 16:38:42 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	convert_with_flags(t_flags *flags)
 		u_int_with_flags(flags);
 	if (flags->type == 'c' || flags->type == '%')
 		char_with_flags(flags);
-	if (flags->type == 'x'|| flags->type == 'X')
+	if (flags->type == 'x' || flags->type == 'X')
 		hexa_with_flags(flags);
 	if (flags->type == 'p')
 		ptr_with_flags(flags);

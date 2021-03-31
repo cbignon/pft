@@ -6,7 +6,7 @@
 #    By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/02 11:17:28 by cbignon           #+#    #+#              #
-#    Updated: 2021/03/31 13:15:13 by cbignon          ###   ########.fr        #
+#    Updated: 2021/03/31 17:21:47 by cbignon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,11 @@ SOURCES=	ft_printf.c \
 			len_with_flags.c \
 			convert_with_flags.c \
 			ft_print_int.c \
+			ft_print_int_2.c \
 			ft_print_u_int.c \
 			ft_print_s.c\
 			ft_print_char.c \
-			ft_print_x_X.c \
+			ft_print_x.c \
 			ft_print_p.c \
 
 CC= clang

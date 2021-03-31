@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 13:54:29 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 13:23:35 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 17:25:00 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		ft_putnbr(int nb, int len_b, char *base, t_flags *flags)
 		ft_putnbr(nombre / len_b, len_b, base, flags);
 	}
 	reste = nombre % len_b;
-	flags->printed += write(1, &base[reste],1);
+	flags->printed += write(1, &base[reste], 1);
 }
 
 void		ft_putnbr_hex(unsigned long long nbr, t_flags *flags)
@@ -53,15 +53,15 @@ void		ft_putnbr_hex(unsigned long long nbr, t_flags *flags)
 	unsigned long long	len_b;
 	char				*base;
 	int					reste;
-	
+
 	base = "0123456789abcdef";
 	len_b = 16;
 	if (nbr >= len_b)
 	{
-		ft_putnbr_hex(nbr/ len_b, flags);
+		ft_putnbr_hex(nbr / len_b, flags);
 	}
 	reste = nbr % len_b;
-	flags->printed += write(1, &base[reste],1);
+	flags->printed += write(1, &base[reste], 1);
 }
 
 void		ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags)
@@ -69,30 +69,30 @@ void		ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags)
 	unsigned long long	len_b;
 	char				*base;
 	int					reste;
-	
+
 	base = "0123456789ABCDEF";
 	len_b = 16;
 	if (nbr >= len_b)
 	{
-		ft_putnbr_up_hex(nbr/ len_b, flags);
+		ft_putnbr_up_hex(nbr / len_b, flags);
 	}
 	reste = nbr % len_b;
 	flags->printed += write(1, &base[reste], 1);
 }
 
-void		ft_put_un_nbr(unsigned int nb, int len_b, char *base, t_flags *flags)
+void		ft_put_un_nbr(unsigned int n, int len, char *base, t_flags *flags)
 {
 	int		reste;
 
-	if (nb == 4294967295)
+	if (n == 4294967295)
 	{
 		flags->printed += write(1, "4294967295", 10);
 		return ;
 	}
-	if (nb >= (unsigned)len_b)
+	if (n >= (unsigned)len)
 	{
-		ft_put_un_nbr(nb / len_b, len_b, base, flags);
+		ft_put_un_nbr(n / len, len, base, flags);
 	}
-	reste = nb % len_b;
+	reste = n % len;
 	flags->printed += write(1, &base[reste], 1);
 }
