@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 16:48:00 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 21:55:32 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 19:43:12 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ size_t			ft_strlen(const char *str)
 	size_t	len;
 
 	len = 0;
-	if (str == NULL)
-		str = "(null)";
 	while (str[len] != '\0')
 		len++;
 	return (len);
