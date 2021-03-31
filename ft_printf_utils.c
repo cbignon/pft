@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 13:54:29 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 14:46:25 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 13:23:35 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ void		ft_put_un_nbr(unsigned int nb, int len_b, char *base, t_flags *flags)
 {
 	int		reste;
 
+	if (nb == 4294967295)
+	{
+		flags->printed += write(1, "4294967295", 10);
+		return ;
+	}
 	if (nb >= (unsigned)len_b)
 	{
 		ft_put_un_nbr(nb / len_b, len_b, base, flags);

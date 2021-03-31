@@ -6,18 +6,20 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 09:52:22 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 21:39:02 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:58:31 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-void	int_with_flags(t_flags *flags, long int n)
+void	int_with_flags(t_flags *flags)
 {
-	int	initial_len;
-	int	to_add;
-	int	add_back;
+	long int	n;
+	int			initial_len;
+	int			to_add;
+	int			add_back;
 
+	n = va_arg(flags->args, int);
 	initial_len = ft_count_digit(n);
 	to_add = 0;
 	add_back = 0;
@@ -37,12 +39,54 @@ void	int_with_flags(t_flags *flags, long int n)
 	ft_print_int(n, to_add, add_back, flags);
 }
 
-void	str_with_flags(t_flags *flags, char *s)
+void	hexa_with_flags(t_flags *flags)
 {
-	int	initial_len;
-	int	max_len;
-	int	space;
+	unsigned int	n;
+	int				initial_len;
+	int				to_add;
+	int				add_back;
 
+	n = (unsigned)va_arg(flags->args, unsigned);
+	initial_len = ft_count_hexa(n);
+	to_add = 0;
+	add_back = 0;
+	if (initial_len < flags->width)
+		to_add = flags->width - initial_len;
+	if (initial_len < flags->precision)
+		add_back = flags->precision - initial_len;
+	if (flags->dot && flags->width > 0)
+		to_add -= add_back;
+	ft_print_hexa(n, to_add, add_back, flags);
+}
+
+void	u_int_with_flags(t_flags *flags)
+{
+	unsigned int	n;
+	int				initial_len;
+	int				to_add;
+	int				add_back;
+
+	n = (unsigned)va_arg(flags->args, unsigned);
+	initial_len = ft_count_digit(n);
+	to_add = 0;
+	add_back = 0;
+	if (initial_len < flags->width)
+		to_add = flags->width - initial_len;
+	if (initial_len < flags->precision)
+		add_back = flags->precision - initial_len;
+	if (flags->dot && flags->width > 0)
+		to_add -= add_back;
+	ft_print_u_int(n, to_add, add_back, flags);
+}
+
+void	str_with_flags(t_flags *flags)
+{
+	int		initial_len;
+	int		max_len;
+	int		space;
+	char	*s;
+
+	s = va_arg(flags->args, char*);
 	if (s == NULL)
 		initial_len = 6;
 	else
@@ -65,18 +109,3 @@ void	str_with_flags(t_flags *flags, char *s)
 	ft_print_str(s, max_len, space, flags);
 }
 
-void	char_with_flags(t_flags *flags, char c)
-{
-	int	space;
-
-	space = 0;
-	if (flags->width >= 1)
-		space = flags->width - 1;
-	if (flags->type == '%' && flags->zero)
-		put_zero(space, flags);
-	else if (flags->minus == 0)
-		put_space(space, flags);
-	flags->printed += write(1, &c, 1);
-	if (flags->minus == 1)
-		put_space(space, flags);
-}

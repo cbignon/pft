@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 15:31:33 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 21:42:32 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 14:16:01 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,18 @@
 
 void	convert_with_flags(t_flags *flags)
 {
-	long int	n;
-	char		c;
-	char		*s;
-
-	if (flags->type == 'd' || flags->type == 'i' || flags->type == 'u')
-	{
-		if (flags->type == 'u')
-			n = (unsigned)va_arg(flags->args, unsigned);
-		else
-			n = va_arg(flags->args, int);
-		int_with_flags(flags, n);
-	}
+	if (flags->type == 'd' || flags->type == 'i')
+		int_with_flags(flags);
+	if (flags->type == 'u')
+		u_int_with_flags(flags);
 	if (flags->type == 'c' || flags->type == '%')
-	{
-		if (flags->type == 'c')
-			c = va_arg(flags->args, int);
-		else
-			c = '%';
-		char_with_flags(flags, c);
-	}
+		char_with_flags(flags);
+	if (flags->type == 'x'|| flags->type == 'X')
+		hexa_with_flags(flags);
 	if (flags->type == 'p')
-		ft_convert_address(flags);
-	if (flags->type == 'x')
-		ft_convert_hex(flags);
-	if (flags->type == 'X')
-		ft_convert_up_hex(flags);
+		ptr_with_flags(flags);
 	if (flags->type == 's')
-	{
-		s = va_arg(flags->args, char*);
-		str_with_flags(flags, s);
-	}
+		str_with_flags(flags);
 }
 
 void	put_zero(int to_add, t_flags *flags)

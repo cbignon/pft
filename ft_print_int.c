@@ -6,13 +6,13 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 15:42:56 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/30 21:54:47 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/03/31 13:06:33 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-void	ft_print_int(int n, int to_add, int add_back, t_flags *flags)
+void	ft_print_int(long int n, int to_add, int add_back, t_flags *flags)
 {
 	if (flags->width > 0 && flags->dot == 0)
 		only_width(n, to_add, flags);
