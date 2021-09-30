@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:47:38 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 16:59:58 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/09/30 11:22:48 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_len(char *s, int len, t_flags *flags)
 	}
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_flags	flags;
 

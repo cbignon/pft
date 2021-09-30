@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 11:48:15 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 19:39:56 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/09/30 11:40:26 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_printf(const char *format, ...
-) __attribute__((format(printf,1,2)));
+int				ft_printf(const char *format, ...)
+				__attribute__((format(printf, 1, 2)));
 
-typedef struct	s_flags
+typedef struct s_flags
 {
-	char			type;
-	int				i;
-	int				zero;
-	long long		width;
-	int				dot;
-	long long		precision;
-	int				minus;
-	int				printed;
-	va_list			args;
+	char		type;
+	int			i;
+	int			zero;
+	long long	width;
+	int			dot;
+	long long	precision;
+	int			minus;
+	int			printed;
+	va_list		args;
 }				t_flags;
 int				ft_printf(const char *format, ...);
 void			ft_print_until(const char *format, char c, t_flags *flags);
@@ -51,7 +51,8 @@ void			ft_pf_putstr(char *str, t_flags *flags);
 void			ft_putnbr_hex(unsigned long long nbr, t_flags *flags);
 void			ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags);
 void			ft_putnbr(int nb, int len_b, char *base, t_flags *flags);
-void			ft_put_un_nbr(unsigned n, int len, char *base, t_flags *flags);
+void			ft_put_un_nbr(unsigned int n, int len, char *base,
+					t_flags *flags);
 unsigned int	ft_count_digit(long int n);
 unsigned int	ft_count_hexa(unsigned long long n);
 void			convert_with_flags(t_flags *flags);
@@ -65,10 +66,12 @@ void			prec_and_width(int n, int to_add, int add_back, t_flags *flags);
 void			deal_neg_int(int n, int to_add, int add_back, t_flags *flags);
 void			deal_zero_int(int to_add, int add_back, t_flags *flags);
 void			u_int_with_flags(t_flags *flags);
-void			ft_print_u_int(unsigned n, int add, int add_b, t_flags *flags);
+void			ft_print_u_int(unsigned int n, int add, int add_b,
+					t_flags *flags);
 void			u_only_prec(int n, int to_add, t_flags *flags);
-void			u_only_width(unsigned n, int to_add, t_flags *flags);
-void			u_prec_width(unsigned n, int add, int add_b, t_flags *flags);
+void			u_only_width(unsigned int n, int to_add, t_flags *flags);
+void			u_prec_width(unsigned int n, int add, int add_b,
+					t_flags *flags);
 void			char_with_flags(t_flags *flags);
 void			str_with_flags(t_flags *flags);
 void			ft_print_str(char *s, int max_len, int space, t_flags *flags);
@@ -80,10 +83,10 @@ void			ft_print_hexa(long hexa, int add, int add_b, t_flags *flags);
 void			x_prec_and_width(long hexa, int add, int add_b, t_flags *flags);
 void			x_only_prec(long int hexa, int to_add, t_flags *flags);
 void			x_only_width(long int hexa, int to_add, t_flags *flags);
-void			ft_convert_hex(t_flags *flags, unsigned hexa);
-void			ft_convert_up_hex(t_flags *flags, unsigned hexa);
+void			ft_convert_hex(t_flags *flags, unsigned int hexa);
+void			ft_convert_up_hex(t_flags *flags, unsigned int hexa);
 void			ptr_with_flags(t_flags *flags);
-void			ft_convert_address(t_flags *flags,
-				unsigned long long address, int space);
+void			ft_convert_address(t_flags *flags, unsigned long long address,
+					int space);
 
 #endif

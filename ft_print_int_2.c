@@ -6,7 +6,7 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:52:52 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 16:53:29 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/04/08 14:32:18 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	deal_neg_int(int n, int to_add, int add_back, t_flags *flags)
 
 void	deal_zero_int(int to_add, int add_back, t_flags *flags)
 {
-	if (flags->precision == 0)
+	if (flags->dot && flags->precision == 0)
 	{
 		flags->printed += write(1, " ", 1);
 		put_space(to_add, flags);

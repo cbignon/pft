@@ -6,13 +6,13 @@
 /*   By: cbignon <cbignon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 13:54:29 by cbignon           #+#    #+#             */
-/*   Updated: 2021/03/31 17:25:00 by cbignon          ###   ########.fr       */
+/*   Updated: 2021/09/30 11:22:18 by cbignon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_libftprintf.h"
 
-void		ft_pf_putstr(char *str, t_flags *flags)
+void	ft_pf_putstr(char *str, t_flags *flags)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ void		ft_pf_putstr(char *str, t_flags *flags)
 	}
 }
 
-void		ft_putnbr(int nb, int len_b, char *base, t_flags *flags)
+void	ft_putnbr(int nb, int len_b, char *base, t_flags *flags)
 {
 	int		reste;
 	long	nombre;
@@ -48,7 +48,7 @@ void		ft_putnbr(int nb, int len_b, char *base, t_flags *flags)
 	flags->printed += write(1, &base[reste], 1);
 }
 
-void		ft_putnbr_hex(unsigned long long nbr, t_flags *flags)
+void	ft_putnbr_hex(unsigned long long nbr, t_flags *flags)
 {
 	unsigned long long	len_b;
 	char				*base;
@@ -64,7 +64,7 @@ void		ft_putnbr_hex(unsigned long long nbr, t_flags *flags)
 	flags->printed += write(1, &base[reste], 1);
 }
 
-void		ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags)
+void	ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags)
 {
 	unsigned long long	len_b;
 	char				*base;
@@ -80,9 +80,9 @@ void		ft_putnbr_up_hex(unsigned long long nbr, t_flags *flags)
 	flags->printed += write(1, &base[reste], 1);
 }
 
-void		ft_put_un_nbr(unsigned int n, int len, char *base, t_flags *flags)
+void	ft_put_un_nbr(unsigned int n, int len, char *base, t_flags *flags)
 {
-	int		reste;
+	int	reste;
 
 	if (n == 4294967295)
 	{
